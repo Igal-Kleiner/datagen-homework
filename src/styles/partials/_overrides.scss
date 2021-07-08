@@ -1,6 +1,6 @@
 @import "variables";
 
-.theme--light.v-application {
+.theme--light.v-application, .theme--light.v-card {
   color: $color-text !important;
 }
 
@@ -15,6 +15,7 @@
   border-radius: 50% !important;
 }
 .v-item-group.v-bottom-navigation .v-btn.close-drawer {
+  min-width: initial;
   max-width: initial;
   max-height: initial;
   width: 24px;

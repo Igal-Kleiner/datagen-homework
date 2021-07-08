@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { findIndex, filter, sortBy } from 'lodash'
+import { findIndex, filter, sortBy, find } from 'lodash'
 
 Vue.use(Vuex)
 
@@ -15,7 +15,7 @@ export default new Vuex.Store({
     SET_TASK_COMPLETE: (state, id) => {
       const index = findIndex(state.tasks, task => task.id === id)
       const tasks = [...state.tasks]
-      tasks[index].isComplete = true
+      tasks[index].isComplete = !tasks[index].isComplete
       state.tasks = tasks
     },
     DELETE_TASK: (state, id) => {
@@ -27,6 +27,9 @@ export default new Vuex.Store({
   getters: {
     GET_TASKS: state => {
       return sortBy(state.tasks, ['isComplete', 'id'])
+    },
+    GET_TASK_BY_ID: state => id => {
+      return find(state.tasks, task => task.id === id)
     }
   },
   modules: {

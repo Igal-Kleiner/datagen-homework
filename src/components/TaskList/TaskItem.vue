@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters class='d-flex task-item'>
+  <v-row v-ripple no-gutters class='d-flex task-item' @click='goToTask(task.id)'>
     <GeneralItem>
       <template v-slot:content>
         <div
@@ -63,6 +63,9 @@
       },
       deleteItem(id) {
         this.deleteTask(id)
+      },
+      goToTask(id) {
+        this.$router.push({name: 'Task', params: {id}})
       }
     }
   }
@@ -73,6 +76,8 @@
 
   .task-item
     border-bottom: $border-style
+    &:hover
+      cursor: pointer
     .item-content
       border-left: $border-style
 </style>
