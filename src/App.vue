@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app class='overflow-hidden'>
+    <v-main>
+      <router-view />
+    </v-main>
+    <v-bottom-navigation
+      :input-value='active'
+      height='86vh'
+      absolute
+      grow
+    >
+      <TaskForm />
+    </v-bottom-navigation>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import EventBus from './utils/eventBus'
+  import TaskForm from './components/TaskForm'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  export default {
+    name: 'App',
+    components: {
+      TaskForm
+    },
+    data() {
+      return {
+        active: false
+      }
+    },
+    methods: {
+      toggleDrawer() {
+        EventBus.$emit('toggle-drawer')
+      }
+    },
+    mounted() {
+      EventBus.$on('toggle-drawer', () => {
+        this.active = !this.active
+      })
     }
   }
-}
-</style>
+</script>

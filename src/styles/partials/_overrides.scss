@@ -1,0 +1,22 @@
+@import "variables";
+
+.theme--light.v-application {
+  color: $color-text !important;
+}
+
+.v-text-field > .v-input__control > .v-input__slot::before {
+  border-style: none !important;
+}
+
+.v-item-group.v-bottom-navigation .v-btn.save {
+  min-width: initial;
+  height: 56px !important;
+  width: 56px;
+  border-radius: 50% !important;
+}
+.v-item-group.v-bottom-navigation .v-btn.close-drawer {
+  max-width: initial;
+  max-height: initial;
+  width: 24px;
+  height: 24px;
+}
