@@ -14,19 +14,20 @@
       class='item-content text-body-2 flex-grow-1 d-flex align-center pl-2'
     >
       <div
+        class='text--secondary'
         :class="{'text-decoration-line-through font-italic text--disabled' : task.isComplete}"
       >
         {{ task.title }}
       </div>
       <v-spacer />
       <v-btn small icon class='mr-1' @click.stop='setComplete(task.id)'>
-        <v-icon>
+        <v-icon color='secondary'>
           mdi-check
         </v-icon>
       </v-btn>
       <v-divider vertical inset />
       <v-btn small icon class='ml-1' @click.stop='deleteItem(task.id)'>
-        <v-icon>
+        <v-icon color='secondary'>
           mdi-trash-can
         </v-icon>
       </v-btn>
