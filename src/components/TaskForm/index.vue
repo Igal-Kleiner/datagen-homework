@@ -25,6 +25,7 @@
           fab
           color='primary'
           class='save'
+          :disabled='!title.length'
           @click='onSubmit'
         >
           <v-icon color='primary'>

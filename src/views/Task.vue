@@ -7,14 +7,14 @@
         </v-icon>
       </v-btn>
     </v-toolbar>
-    <v-card v-if='task' flat class='mt-1'>
+    <v-card v-if='task' flat class='mt-1 secondary--text'>
       <v-row
         no-gutters
         class='justify-center text-h6 font-weight-black mb-3'
       >
         {{task.title}}
       </v-row>
-      <v-card-text>
+      <v-card-text class='secondary--text'>
         {{ task.description }}
       </v-card-text>
     </v-card>
