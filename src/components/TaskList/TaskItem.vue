@@ -19,13 +19,13 @@
         {{ task.title }}
       </div>
       <v-spacer />
-      <v-btn small icon class='mr-1' @click='setComplete(task.id)'>
+      <v-btn small icon class='mr-1' @click.stop='setComplete(task.id)'>
         <v-icon>
           mdi-check
         </v-icon>
       </v-btn>
       <v-divider vertical inset />
-      <v-btn small icon class='ml-1' @click='deleteItem(task.id)'>
+      <v-btn small icon class='ml-1' @click.stop='deleteItem(task.id)'>
         <v-icon>
           mdi-trash-can
         </v-icon>

@@ -28,11 +28,6 @@
         active: false
       }
     },
-    methods: {
-      toggleDrawer() {
-        EventBus.$emit('toggle-drawer')
-      }
-    },
     mounted() {
       EventBus.$on('toggle-drawer', () => {
         this.active = !this.active
